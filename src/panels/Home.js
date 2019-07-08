@@ -1,8 +1,11 @@
 import GoldenLayout from "golden-layout";
 import React from "react";
 import ReactDOM from "react-dom";
+import SideBar from "panels/SideBar";
 import { Search } from "components/DataEntry";
-
+import { FolderIcon } from "components/Icon";
+import SplitPane from 'react-splitter-layout';
+import 'react-splitter-layout/lib/index.css';
 window.React = React;
 window.ReactDOM = ReactDOM;
 
@@ -66,7 +69,7 @@ export class Home extends React.PureComponent {
     /* you can pass config as prop, or use a predefined one */
     const instance = new GoldenLayout(
       config,
-      document.getElementById("golden-root")
+      document.getElementById("gl-container")
     );
     instance.registerComponent("HogeA", HogeA);
     instance.registerComponent("HogeB", HogeB);
@@ -76,8 +79,7 @@ export class Home extends React.PureComponent {
     let addMenuItem = (title, text) => {
         var element = document.createElement('li');
         element.textContent = text;
-        console.log(element)
-        document.getElementById("menuContainer").append(element);
+        document.getElementById("menu-container").append(element);
       
         var newItemConfig = {
           title: title,
@@ -99,11 +101,13 @@ export class Home extends React.PureComponent {
 
   render() {
     return (
-      <div>
-        <ul id="menuContainer" />
-        <div id="golden-root" style={{ height: "2000px", width: "2000px" }}>
+      <div className="fit">
+        <SplitPane secondaryInitialSize={800}>
+        <SideBar />
+        <div id="gl-container" className="fit">
           <div ref={this.setNode} />
         </div>
+        </SplitPane>
       </div>
     );
   }
