@@ -1,4 +1,6 @@
 import React from "react";
+import { openPanel } from "panels/panelDefs";
+
 
 class SideBar extends React.PureComponent {
 
