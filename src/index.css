@@ -46,3 +46,11 @@ code {
   left: 0;
   box-shadow: -3px 0px 9px 0px rgba( 0, 0, 0, 0.4 );
 }
+
+#panel {
+  border: 1px solid rgb(83, 0, 0);
+}
+
+#panel h2 {
+  color: azure !important;
+}

@@ -28,6 +28,7 @@ const GoldenLayoutConfig = {
   content: [
     {
       type: "row",
+      isClosable: false,
       content: []
     }
   ]
