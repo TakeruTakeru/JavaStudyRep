@@ -5,6 +5,11 @@ import SplitPane from "react-splitter-layout";
 import { GoldenLayoutConfig } from "config";
 import GoldenLayoutManager from "panels/GoldenLayoutManager";
 
+const SIDEBAR_MIN_SIZE = 10;
+const PANEL_MIN_SIZE = 50;
+const PANEL_INITIALIZE_SIZE = 80;
+const CUSTOM_SPLITTER_CLASSNAME = "custom-splitter";
+
 export class Home extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -16,17 +21,26 @@ export class Home extends React.PureComponent {
       window.$("#gl-container")
     );
     GoldenLayoutManager.setInstance(instance);
+    this.props.store.uiState.setGoldenLayoutManager(GoldenLayoutManager);
   }
 
   render() {
+    const { uiState } = this.props.store;
+
     return (
       <div className="fit">
-        <SplitPane secondaryInitialSize={800}>
-          <SideBar />
-          <div>
-            <div id="gl-container">
-              <div ref={node => (this.node = node)} />
+        <SplitPane
+         customClassName={CUSTOM_SPLITTER_CLASSNAME} 
+          percentage={true}
+          secondaryInitialSize={PANEL_INITIALIZE_SIZE}
+          onDragEnd={uiState.toggleSideBar}
+        >
+          <SideBar toggleSideBar={uiState.toggleSideBar} />
+          <div id="gl-container">
+            <div className="container-header">
+              <h4>私の 2 つの人格には共通の記憶がある</h4>
             </div>
+            <div ref={node => (this.node = node)} />
           </div>
         </SplitPane>
       </div>

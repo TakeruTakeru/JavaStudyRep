@@ -1,5 +1,6 @@
 import React from "react";
 import GoldenLayoutManager from "panels/GoldenLayoutManager";
+import { FolderIcon } from "components/Icon";
 
 class SideBar extends React.PureComponent {
   componentDidMount() {
@@ -16,8 +17,8 @@ class SideBar extends React.PureComponent {
   }
   render() {
     return (
-      <div>
-        <ul id="menu-container" />
+      <div className="fit">
+            <ul id="menu-container" />
       </div>
     );
   }

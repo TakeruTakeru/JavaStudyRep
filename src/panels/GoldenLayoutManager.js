@@ -22,14 +22,17 @@ class GoldenLayoutManager {
         });
     };
 
+    static updateSize() {
+        this.instance.updateSize();
+    }
+
     static openPanel(component) {
         let newItemConfig = {
             title: component,
             type: "react-component",
             component: component
           };
-          console.log(this.instance)
-          console.log(component)
+          console.log(this.instance.updateSize)
           const lastItem = this.instance.root.contentItems;
           lastItem[0].addChild(newItemConfig);
     };

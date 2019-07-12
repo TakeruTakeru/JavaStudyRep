@@ -5,11 +5,15 @@ import "golden-layout/src/css/goldenlayout-dark-theme.css";
 import "react-splitter-layout/lib/index.css";
 import 'antd/dist/antd.css';
 import 'index.css';
+import store from 'store';
+import { observer } from 'mobx-react';
+
+observer(Home)
 
 function App() {
   return (
     <div className="fit">
-      <Home ref={React.createRef()}/>
+      <Home store={store} ref={React.createRef()}/>
     </div>
   );
 }

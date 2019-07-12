@@ -20,16 +20,16 @@ code {
 #root {
   position: relative;
   overflow: hidden;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'Abel', sans-serif;
 }
 
 #menu-container{
   width: 100%;
   height: 100%;
-  position:absolute;
-  top: 0;
-  left: 0;
   background: dimgray;
   padding: 0%;
+  overflow: hidden;
 }
 
 #menu-container li {
@@ -53,4 +53,24 @@ code {
 
 #panel h2 {
   color: azure !important;
+}
+
+
+.custom-splitter > .layout-splitter {
+  background-color: crimson;
+
+}
+.custom-splitter.layout-changing > .layout-splitter {
+  background-color: yellow;
+}
+
+.container-header {
+  background-color: bisque;
+  height: 35px;
+  text-align: center;
+}
+
+.container-header h4 {
+  font-size: 1.5rem;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
