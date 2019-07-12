@@ -5,9 +5,9 @@ import SplitPane from "react-splitter-layout";
 import { GoldenLayoutConfig } from "config";
 import GoldenLayoutManager from "panels/GoldenLayoutManager";
 
-const SIDEBAR_MIN_SIZE = 10;
-const PANEL_MIN_SIZE = 50;
-const PANEL_INITIALIZE_SIZE = 80;
+const SIDEBAR_MIN_SIZE = 0;
+const PANEL_MIN_SIZE = 85;
+const PANEL_INITIALIZE_SIZE = 90;
 const CUSTOM_SPLITTER_CLASSNAME = "custom-splitter";
 
 export class Home extends React.PureComponent {
@@ -34,6 +34,8 @@ export class Home extends React.PureComponent {
           percentage={true}
           secondaryInitialSize={PANEL_INITIALIZE_SIZE}
           onDragEnd={uiState.toggleSideBar}
+          primaryMinSize={SIDEBAR_MIN_SIZE}
+          secondaryMinSize={PANEL_MIN_SIZE}
         >
           <SideBar toggleSideBar={uiState.toggleSideBar} />
           <div id="gl-container">

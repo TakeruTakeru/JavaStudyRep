@@ -35,7 +35,11 @@ code {
 #menu-container li {
   background: gray;
   list-style: none;
-  margin: 5px;
+  font-size: 1.3rem;
+  color: beige;
+  margin: 8px;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 #gl-container{
@@ -55,13 +59,10 @@ code {
   color: azure !important;
 }
 
-
 .custom-splitter > .layout-splitter {
-  background-color: crimson;
+  width: 5px;
+  background-color: rgb(83, 0, 0);
 
-}
-.custom-splitter.layout-changing > .layout-splitter {
-  background-color: yellow;
 }
 
 .container-header {
@@ -73,4 +74,20 @@ code {
 .container-header h4 {
   font-size: 1.5rem;
   font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+.splitter-layout  .layout-splitter:hover {
+  background-color: rgb(200, 0, 0);  
+}
+
+.sidebar-title {
+  height: 35px;
+  text-align: center;
+  background: dimgray;
+  border: 3px solid rgb(116, 116, 116)
+}
+
+.sidebar-title h4 {
+  font-size: 1.4rem;
+  color: azure;
+  margin: 0px;
 }

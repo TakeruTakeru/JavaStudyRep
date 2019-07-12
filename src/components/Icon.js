@@ -1,12 +1,15 @@
 import React from "react";
-import { Button } from "antd";
+import { Icon } from "antd";
 
-const FolderIcon = props => {
-    const { isOpen, onClick } = props;
-    const name = isOpen ? "folder-open": "folder-open";
-    return (
-        <Button icon={name} onClick={onClick}/>
-    )
-}
+const FolderMenuItem = props => {
+  const { isOpen, onClick, text } = props;
+  const name = isOpen ? "folder-open" : "folder";
+  return (
+    <div onClick={onClick} style={{"whiteSpace": "nowrap"}} >
+      <Icon type={name} style={{"marginRight": "3px"}}/>
+      {text}
+    </div>
+  );
+};
 
-export { FolderIcon }
+export { FolderMenuItem };

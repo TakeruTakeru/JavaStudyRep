@@ -1,27 +1,34 @@
 import React from "react";
 import GoldenLayoutManager from "panels/GoldenLayoutManager";
-import { FolderIcon } from "components/Icon";
+import { FolderMenuItem } from "components/Icon";
 
 class SideBar extends React.PureComponent {
-  componentDidMount() {
-    let addMenuItem = text => {
-      var element = document.createElement("li");
-      element.textContent = text;
-      document.getElementById("menu-container").append(element);
-      element.addEventListener("click", e => {
-        GoldenLayoutManager.openPanel(e.target.innerText);
-      });
-    };
-    addMenuItem("hogeA");
-    addMenuItem("hogeB");
+
+  onClickMenuItem = componentName => {
+    GoldenLayoutManager.openPanel(componentName);
   }
+
   render() {
     return (
-      <div className="fit">
-            <ul id="menu-container" />
+      <div className="fit sidebar">
+        <div className="sidebar-title">
+          <h4>TITLE</h4>
+        </div>
+        <ul id="menu-container">
+          <MenuItem onClick={this.onClickMenuItem} text="hogeA"/>
+          </ul>
       </div>
     );
   }
+}
+
+const MenuItem = props => {
+  const { text, onClick } = props;
+  return(
+    <li>
+      <FolderMenuItem text={text} isOpen={true} onClick={() => onClick(text)} />
+    </li>
+  )
 }
 
 export default SideBar;

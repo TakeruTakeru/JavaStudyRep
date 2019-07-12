@@ -8,11 +8,16 @@ class uiState {
         this.manager.updateSize();
     }
 
+    getSelectedItem = () => {
+        return this.manager.getSelectedItem
+    }
+
     setGoldenLayoutManager = (manager) => {
         this.manager = manager;
     }
 }
 
 export default decorate(uiState, {
-    toggleSideBar: action
+    toggleSideBar: action,
+    getSelectedItem: action
 })

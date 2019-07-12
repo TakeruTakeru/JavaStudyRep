@@ -5,7 +5,6 @@ const { Search } = Input;
 
 const SearchBase = props => {
     const { placeholder, onSearch, width } = props;
-    console.log(onSearch)
     return (
         <Search
         placeholder={placeholder}
