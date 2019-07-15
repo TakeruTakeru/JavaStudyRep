@@ -1,4 +1,4 @@
-import { observable, action, decorate } from "mobx";
+import { action, decorate } from "mobx";
 
 class uiState {
     
@@ -15,9 +15,19 @@ class uiState {
     setGoldenLayoutManager = (manager) => {
         this.manager = manager;
     }
+
+    closeAll = () => {
+        this.manager.closeAll();
+    }
+
+    openAll = componentsList => {
+        this.manager.openAll(componentsList);
+    }
 }
 
 export default decorate(uiState, {
     toggleSideBar: action,
-    getSelectedItem: action
+    getSelectedItem: action,
+    closeAll: action,
+    openAll: action
 })

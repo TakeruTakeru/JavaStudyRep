@@ -40,6 +40,7 @@ code {
   margin: 8px;
   border-radius: 5px;
   padding: 5px;
+  display: block;
 }
 
 #gl-container{
@@ -59,10 +60,13 @@ code {
   color: azure !important;
 }
 
+.splitter-layout .layout-pane {
+  overflow: hidden;
+}
+
 .custom-splitter > .layout-splitter {
   width: 5px;
   background-color: rgb(83, 0, 0);
-
 }
 
 .container-header {
@@ -89,5 +93,29 @@ code {
 .sidebar-title h4 {
   font-size: 1.4rem;
   color: azure;
+  margin: 0px;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  background: rgb(177, 177, 177);
+  text-align: center;
+}
+
+.sidebar-menu-item {
+  display: inline-block;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sidebar-tab-item {
+  display: inline-block;
+  list-style: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0px;
   margin: 0px;
 }

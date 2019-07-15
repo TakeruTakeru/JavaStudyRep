@@ -37,7 +37,7 @@ export class Home extends React.PureComponent {
           primaryMinSize={SIDEBAR_MIN_SIZE}
           secondaryMinSize={PANEL_MIN_SIZE}
         >
-          <SideBar toggleSideBar={uiState.toggleSideBar} />
+          <SideBar openAll={uiState.openAll} closeAll={uiState.closeAll} toggleSideBar={uiState.toggleSideBar} />
           <div id="gl-container">
             <div className="container-header">
               <h4>私の 2 つの人格には共通の記憶がある</h4>
