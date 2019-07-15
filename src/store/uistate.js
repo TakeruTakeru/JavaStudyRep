@@ -1,6 +1,6 @@
 import { action, decorate } from "mobx";
 
-class uiState {
+class UiState {
     
     manager;
 
@@ -25,9 +25,9 @@ class uiState {
     }
 }
 
-export default decorate(uiState, {
+export default decorate(UiState, {
     toggleSideBar: action,
     getSelectedItem: action,
     closeAll: action,
     openAll: action
-})
+});

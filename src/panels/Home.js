@@ -1,9 +1,9 @@
 import React from "react";
 import GoldenLayout from "golden-layout";
-import SideBar from "panels/SideBar";
 import SplitPane from "react-splitter-layout";
-import { GoldenLayoutConfig } from "config";
+import SideBar from "panels/SideBar";
 import GoldenLayoutManager from "panels/GoldenLayoutManager";
+import { GoldenLayoutConfig } from "config";
 
 const SIDEBAR_MIN_SIZE = 0;
 const PANEL_MIN_SIZE = 85;

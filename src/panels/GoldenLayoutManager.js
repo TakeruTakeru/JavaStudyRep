@@ -1,6 +1,5 @@
 import { ItemConfig } from "panels/panelDefs";
 
-
 class GoldenLayoutManager {
 
     static instance;
@@ -37,13 +36,17 @@ class GoldenLayoutManager {
     }
 
     static openPanel(component) {
-        let newItemConfig = {
+          const targetComp = ItemConfig.find(item => {
+              return item.key === component;
+          });
+          const newItemConfig = {
             title: component,
             type: "react-component",
-            component: component
+            component: component,
+            props: targetComp.props
           };
           const lastItem = this.instance.root.contentItems;
-          lastItem[0].addChild(newItemConfig);
+          lastItem[0].addChild(newItemConfig)
     };
 
     static closeAll() {
