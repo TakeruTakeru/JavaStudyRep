@@ -10,10 +10,11 @@ class HttpClient {
 }
 
 class LocalhostClient extends HttpClient {
-    static get(endpoint) {
-        fetch(`${this.URL.local}/${endpoint}`).then(res => {
+    static async get(endpoint) {
+        const result = await fetch(`${this.URL.local}/${endpoint}`).then(res => {
             return res.json()
         });
+        return result;
     };
 }
 

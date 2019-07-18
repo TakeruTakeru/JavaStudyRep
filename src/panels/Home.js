@@ -40,7 +40,7 @@ export class Home extends React.PureComponent {
           <SideBar openAll={uiState.openAll} closeAll={uiState.closeAll} toggleSideBar={uiState.toggleSideBar} />
           <div id="gl-container">
             <div className="container-header">
-              <h4>私の 2 つの人格には共通の記憶がある</h4>
+              <h4>{this.props.store.user.username ? `${this.props.store.user.username}$ ${this.props.store.user.getUserInfo}` : 'Please Login...'}</h4>
             </div>
             <div ref={node => (this.node = node)} />
           </div>

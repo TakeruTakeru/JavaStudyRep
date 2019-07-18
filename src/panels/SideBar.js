@@ -2,7 +2,7 @@ import React from "react";
 import GoldenLayoutManager from "panels/GoldenLayoutManager";
 import { FolderMenuItem, SideBarMenu } from "components/Icon";
 
-const COMPONENT_KEYS =  GoldenLayoutManager.getComponentKeys();
+const COMPONENT_CONFIG =  GoldenLayoutManager.getComponentConfig();
 
 class SideBar extends React.PureComponent {
 
@@ -18,8 +18,8 @@ class SideBar extends React.PureComponent {
         </div>
         <SideBarMenu openAll={this.props.openAll} closeAll={this.props.closeAll} />
         <ul id="menu-container">
-          {COMPONENT_KEYS.map(key =>{
-            return <MenuItem key={key} onClick={this.onClickMenuItem} text={key} />
+          {COMPONENT_CONFIG.map(conf =>{
+            return <MenuItem key={conf.key} title={conf.title} componentName={conf.key} onClick={this.onClickMenuItem} />
           })}
         </ul>
       </div>
@@ -28,13 +28,12 @@ class SideBar extends React.PureComponent {
 }
 
 const MenuItem = props => {
-  const { text, onClick } = props;
+  const { title, onClick, componentName } = props;
   return (
-    <li className="sidebar-tab-item">
+    <li className="sidebar-tab-item" onClick={() => onClick(componentName)}>
       <FolderMenuItem
-        text={text}
+        title={title}
         isOpen={false}
-        onClick={() => onClick(text)}
       />
     </li>
   );

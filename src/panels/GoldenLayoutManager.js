@@ -28,10 +28,10 @@ class GoldenLayoutManager {
     static getSelectedItem() {
         return this.instance.selectedItem;
     }
-
-    static getComponentKeys() {
+    
+    static getComponentConfig() {
         return ItemConfig.map(item => {
-            return item.key;
+            return {title: item.title, key: item.key};
         });
     }
 

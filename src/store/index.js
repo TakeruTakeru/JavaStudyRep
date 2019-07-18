@@ -1,9 +1,11 @@
-import uiState from 'store/uistate';
-import example from 'store/example';
+import UiState from 'store/uistate';
+import Example from 'store/example';
+import User from 'store/user';
 
 const store = {
-    uiState: new uiState(),
-    example: new example()
+    uiState: new UiState(),
+    example: new Example(),
+    user: new User(),
 };
 
 export default store;

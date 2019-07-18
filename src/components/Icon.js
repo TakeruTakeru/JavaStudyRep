@@ -2,12 +2,12 @@ import React from "react";
 import { Icon, Tooltip } from "antd";
 
 const FolderMenuItem = props => {
-  const { isOpen, onClick, text } = props;
+  const { isOpen, title } = props;
   const name = isOpen ? "folder-open" : "folder";
   return (
-    <span onClick={onClick} style={{ whiteSpace: "nowrap" }}>
+    <span style={{ whiteSpace: "nowrap" }}>
       <Icon type={name} style={{ marginRight: "3px" }} />
-      {text}
+      {title}
     </span>
   );
 };
