@@ -25,7 +25,7 @@ export class Home extends React.PureComponent {
   }
 
   render() {
-    const { uiState } = this.props.store;
+    const { uiState, user } = this.props.store;
 
     return (
       <div className="fit">
@@ -40,7 +40,7 @@ export class Home extends React.PureComponent {
           <SideBar openAll={uiState.openAll} closeAll={uiState.closeAll} toggleSideBar={uiState.toggleSideBar} />
           <div id="gl-container">
             <div className="container-header">
-              <h4>{this.props.store.user.username ? `${this.props.store.user.username}$ ${this.props.store.user.getUserInfo}` : 'Please Login...'}</h4>
+              <h4>{user.username ? `${user.username}$ ${user.getUserInfo}` : 'Please Login...'}</h4>
             </div>
             <div ref={node => (this.node = node)} />
           </div>

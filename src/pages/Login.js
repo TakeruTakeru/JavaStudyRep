@@ -19,10 +19,10 @@ class Login extends React.PureComponent {
       <div style={{ textAlign: "center", fontSize: "1.3rem" }}>
         <div
           style={{
-            width: "250px",
+            width: "50%",
             textAlign: "center",
             margin: "auto",
-            marginTop: "200px"
+            marginTop: "20%"
           }}
         >
           <h3 style={{ color: "white" }}>{title}</h3>

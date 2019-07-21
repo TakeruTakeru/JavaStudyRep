@@ -119,3 +119,52 @@ code {
   padding: 0px;
   margin: 0px;
 }
+
+.console-input {
+  background-color: #424141;
+  outline: none;
+  color: lightcyan;
+  border: none;
+  margin-left: 5px;
+  font-size: 1.2rem;
+  cursor: text;
+  width: 50%;
+}
+
+.console-list {
+  list-style: none;
+  font-size: 1.2rem;
+  padding: 5px;
+  margin-left: 10px;
+  color: oldlace;
+}
+
+.console-input-log {
+  color: white;
+  font-size: 1.1rem;
+  margin-left: 5px;
+}
+
+.console-input-log::before {
+  content: '>';
+  display: inline-block;
+  font-size: 0.9rem;
+  margin-right: 3px;
+}
+
+.console-username {
+  color: yellow;
+  font-size: 1.1rem;
+  margin: 3px;
+  padding: 2px;
+}
+
+.console-icon {
+  color: darkgoldenrod;
+  font-size: 1.1rem;
+}
+
+.console-header {
+  text-align: right;
+  margin-right: 5px;
+}
