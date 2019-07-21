@@ -72,10 +72,10 @@ const WrapperForm = Form.create({ name: "LoginForm" })(LoginForm);
 
 const ActionPullDown = props => {
   const { title, menuList, handleMenuClick } = props;
-  const menuItems = menuList.map(menu => {
+  const menuItems = menuList.map((menu, idx) => {
     return (
-      <Menu.Item title={menu} key={menu}>
-        {menu}
+      <Menu.Item title={menu.title} key={idx}>
+        {menu.title}
       </Menu.Item>
     );
   });

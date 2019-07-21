@@ -1,8 +1,18 @@
 import React from "react";
 import { ConsoleLine } from "components/TextDisplayer";
 import { ActionPullDown } from "components/DataEntry";
+import { GithubAdapter, LocalAdapter } from "api/client";
 
+const adapterMapper = [
+  { title: "Github", key: GithubAdapter },
+  { title: "Localhost", key: LocalAdapter }
+];
 class Console extends React.PureComponent {
+  componentDidMount() {
+    const { terminal } = this.props;
+    terminal.setAdapter(adapterMapper[0].key);
+  }
+
   onEnterKeyDown = e => {
     const { user, terminal } = this.props;
 
@@ -13,12 +23,14 @@ class Console extends React.PureComponent {
     }
   };
 
+  adapterHandler = e => {
+    const { terminal } = this.props;
+    terminal.setAdapter(adapterMapper[e.key].key);
+  };
+
   actionHandler = e => {
     const { terminal } = this.props;
-    const actionEvents = {
-      delete: terminal.clearHistories
-    };
-    actionEvents[e.key]();
+    terminal.handleAction(e.key);
   };
 
   render() {
@@ -26,7 +38,7 @@ class Console extends React.PureComponent {
     const histories = terminal.getHistories.map((text, idx) => {
       return (
         <li key={idx}>
-          <ConsoleLine text={text} name={user.username} />
+          <ConsoleLine idx={idx} text={text} name={user.username} />
         </li>
       );
     });
@@ -34,9 +46,15 @@ class Console extends React.PureComponent {
     return (
       <div>
         <div className="console-header">
+            <h3 style={{"color": "white"}}>Adapter: {terminal.getAdapterName}</h3>
+          <ActionPullDown
+            title={"ADAPTER"}
+            menuList={adapterMapper}
+            handleMenuClick={this.adapterHandler}
+          />
           <ActionPullDown
             title={"ACTION"}
-            menuList={["delete"]}
+            menuList={terminal.actionEvents}
             handleMenuClick={this.actionHandler}
           />
         </div>

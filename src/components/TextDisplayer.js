@@ -3,10 +3,13 @@ import { Icon } from "antd";
 import moment from "moment";
 
 const ConsoleLine = props => {
-  const { name, icon, onEnterKeyDown, text } = props;
+  const { name, icon, onEnterKeyDown, text, idx } = props;
   const userIcon = icon ? icon : "user";
   const textLine = text ? (
-    <span className="console-input-log">{text}</span>
+    <span>
+      {idx}
+      <span className="console-input-log">{text}</span>
+    </span>
   ) : (
     <span>
       {moment().format("MMMM D H:mm:ss")}

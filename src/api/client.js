@@ -10,6 +10,8 @@ class HttpClient {
 }
 
 class LocalhostClient extends HttpClient {
+    static _name = 'Localhost Adapter';
+
     static async get(endpoint) {
         const result = await fetch(`${this.URL.local}/${endpoint}`).then(res => {
             return res.json()
@@ -18,7 +20,8 @@ class LocalhostClient extends HttpClient {
     };
 }
 
-class WeatherForecastClient extends HttpClient {
+class GithubClient extends HttpClient {
+    static _name = 'Github Adapter'
 
     static get(endpoint) {
         const result = fetch(`${this.URL.wf}/${endpoint}`, {mode: 'cors'}).then(res => {
@@ -28,4 +31,4 @@ class WeatherForecastClient extends HttpClient {
     };
 }
 
-export { LocalhostClient as LocalAdapter, WeatherForecastClient as WFAdapter }
+export { LocalhostClient as LocalAdapter, GithubClient as GithubAdapter }
