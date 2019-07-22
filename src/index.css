@@ -20,11 +20,11 @@ code {
 #root {
   position: relative;
   overflow: hidden;
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-family: 'Abel', sans-serif;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-family: "Abel", sans-serif;
 }
 
-#menu-container{
+#menu-container {
   width: 100%;
   height: 100%;
   background: dimgray;
@@ -43,13 +43,13 @@ code {
   display: block;
 }
 
-#gl-container{
+#gl-container {
   width: 100%;
-  position:absolute;
+  position: absolute;
   height: 100%;
   top: 0;
   left: 0;
-  box-shadow: -3px 0px 9px 0px rgba( 0, 0, 0, 0.4 );
+  box-shadow: -3px 0px 9px 0px rgba(0, 0, 0, 0.4);
 }
 
 #panel {
@@ -77,17 +77,17 @@ code {
 
 .container-header h4 {
   font-size: 1.5rem;
-  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-family: "M PLUS Rounded 1c", sans-serif;
 }
-.splitter-layout  .layout-splitter:hover {
-  background-color: rgb(200, 0, 0);  
+.splitter-layout .layout-splitter:hover {
+  background-color: rgb(200, 0, 0);
 }
 
 .sidebar-title {
   height: 35px;
   text-align: center;
   background: dimgray;
-  border: 3px solid rgb(116, 116, 116)
+  border: 3px solid rgb(116, 116, 116);
 }
 
 .sidebar-title h4 {
@@ -146,7 +146,7 @@ code {
 }
 
 .console-input-log::before {
-  content: '>';
+  content: ">";
   display: inline-block;
   font-size: 0.9rem;
   margin-right: 3px;
@@ -167,4 +167,21 @@ code {
 .console-header {
   text-align: right;
   margin-right: 5px;
+}
+
+.response-log {
+  background-color: inherit;
+  padding: 10px;
+  margin: 0px;
+  color: rgb(157, 88, 187);
+}
+
+.response-console {
+  border: 2px solid gray;
+  border-radius: 10px;
+  list-style: none;
+  font-size: 1.1rem;
+  padding: 5px;
+  margin: 5px;
+  overflow: scroll;
 }

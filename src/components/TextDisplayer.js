@@ -27,4 +27,9 @@ const ConsoleLine = props => {
   );
 };
 
-export { ConsoleLine };
+const ResponseLine = props => {
+  const { text } = props;
+  return <div className="response-log">{text}</div>;
+};
+
+export { ConsoleLine, ResponseLine };

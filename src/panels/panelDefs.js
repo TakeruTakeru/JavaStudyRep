@@ -8,7 +8,7 @@ import store from 'store';
 const ItemConfig = [
   { title: "home", type: "react-component", key: "home", component: observer(Home), props: { store: store } },
   { title: "Login", type: "react-component", key: "login", component: observer(Login), props: { store: store.user } },
-  { title: "Terminal", type: "react-component", key: "console", component: observer(Console), props: { user: store.user, terminal: store.terminal } }  
+  { title: "Terminal", type: "react-component", key: "console", component: observer(Console), props: { user: store.user, terminal: store.terminal, uiState: store.uiState } }  
 ];
 
 export { ItemConfig };

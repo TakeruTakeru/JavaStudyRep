@@ -1,6 +1,7 @@
 import React from "react";
-import { ConsoleLine } from "components/TextDisplayer";
+import { ConsoleLine, ResponseLine } from "components/TextDisplayer";
 import { ActionPullDown } from "components/DataEntry";
+import { PageLoader } from "components/Loader";
 import { GithubAdapter, LocalAdapter } from "api/client";
 
 const adapterMapper = [
@@ -17,8 +18,11 @@ class Console extends React.PureComponent {
     const { user, terminal } = this.props;
 
     if (e.keyCode === 13) {
+      terminal.switchProcessingState(true);
       const text = e.target.value;
-      terminal.onEnterKeyDown(text !== "" ? text : " ");
+      terminal.onEnterKeyDown(text !== "" ? text : " ").then(() => {
+        terminal.switchProcessingState(false);
+      });
       e.target.value = "";
     }
   };
@@ -34,7 +38,7 @@ class Console extends React.PureComponent {
   };
 
   render() {
-    const { user, terminal } = this.props;
+    const { user, terminal, uiState } = this.props;
     const histories = terminal.getHistories.map((text, idx) => {
       return (
         <li key={idx}>
@@ -42,11 +46,18 @@ class Console extends React.PureComponent {
         </li>
       );
     });
+    const ResponseList = terminal.getResponses.map((res, idx) => {
+      return (
+        <li key={idx}>
+          <ResponseLine text={res} />
+        </li>
+      );
+    });
 
     return (
       <div>
         <div className="console-header">
-            <h3 style={{"color": "white"}}>Adapter: {terminal.getAdapterName}</h3>
+          <h3 style={{ color: "white" }}>Adapter: {terminal.getAdapterName}</h3>
           <ActionPullDown
             title={"ADAPTER"}
             menuList={adapterMapper}
@@ -67,6 +78,15 @@ class Console extends React.PureComponent {
             />
           </li>
         </ul>
+        <div>
+          <PageLoader spinning={terminal.isProcessing} />
+          <ul
+            style={{ maxHeight: uiState.getHeight() / 3 }}
+            className="response-console"
+          >
+            {ResponseList}
+          </ul>
+        </div>
       </div>
     );
   }
