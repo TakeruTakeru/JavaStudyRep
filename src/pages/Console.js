@@ -46,13 +46,25 @@ class Console extends React.PureComponent {
         </li>
       );
     });
-    const ResponseList = terminal.getResponses.map((res, idx) => {
+
+    const resList = terminal.getResponses.map((res, idx) => {
       return (
         <li key={idx}>
           <ResponseLine text={res} />
         </li>
       );
     });
+    const ResponseList =
+      resList.length === 0 ? (
+        <div />
+      ) : (
+        <ul
+          style={{ maxHeight: uiState.getHeight() / 3 }}
+          className="response-console"
+        >
+          {resList}
+        </ul>
+      );
 
     return (
       <div>
@@ -80,12 +92,7 @@ class Console extends React.PureComponent {
         </ul>
         <div>
           <PageLoader spinning={terminal.isProcessing} />
-          <ul
-            style={{ maxHeight: uiState.getHeight() / 3 }}
-            className="response-console"
-          >
-            {ResponseList}
-          </ul>
+          {ResponseList}
         </div>
       </div>
     );

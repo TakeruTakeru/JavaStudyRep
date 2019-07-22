@@ -39,10 +39,14 @@ class GithubClient extends HttpClient {
     return result;
   }
 
-  static parse(res) {
-    const cmd = res.cmd;
-    delete res["cmd"];
-    return `command: <${cmd}> result: ${super.parse(res)}`;
+  static parse(res, idx) {
+    try {
+      return `${idx} > command: <${res.cmd}> result: ${super.parse(
+        res.response
+      )}`;
+    } catch (error) {
+      return "Internal ServerError";
+    }
   }
 }
 

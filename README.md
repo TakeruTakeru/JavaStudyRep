@@ -1,5 +1,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Custom scripts
+
+### yarn start
+- start developing server.
+
+### yarn build
+- build projects files.
+
+### yarn deploy
+- deploy static build files to github pages.
+
+
 ## Available Scripts
 
 In the project directory, you can run:

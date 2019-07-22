@@ -1,6 +1,4 @@
 import { action, observable, decorate, computed } from "mobx";
-import { bool } from "prop-types";
-import { async } from "q";
 
 class Terminal {
   histories = [];
@@ -29,8 +27,8 @@ class Terminal {
     const parsedResponses =
       this.responses.slice(length < 10 ? 0 : length - 10, length) ||
       this.responses;
-    return parsedResponses.map(res => {
-      return this.parse(res);
+    return parsedResponses.map((res, idx) => {
+      return this.parse(res, idx);
     });
   }
 
@@ -38,8 +36,8 @@ class Terminal {
     this.responses.push(res);
   };
 
-  parse = res => {
-    return this.adapter.parse(res);
+  parse = (res, idx) => {
+    return this.adapter.parse(res, idx);
   };
 
   switchProcessingState = bool => {
@@ -56,9 +54,18 @@ class Terminal {
     this.actionEvents[idx]["func"]();
   };
 
+  _clearAll = () => {
+    this._clearHistories();
+    this._clearResponses();
+  }
+
   _clearHistories = () => {
     this.histories = [];
   };
+
+  _clearResponses = () => {
+    this.responses = [];
+  }
 
   _reCallHistory = idx => {
     console.log("Wait for release...");
@@ -76,7 +83,9 @@ class Terminal {
   };
 
   actionEvents = [
-    { title: "Clear Console", func: this._clearHistories },
+    {title: "Clear All", func: this._clearAll},
+    { title: "Clear Text Console", func: this._clearHistories },
+    { title: "Clear Result Console", func: this._clearResponses},
     { title: "Recall", func: this._reCallHistory }
   ];
 }
